@@ -1,0 +1,31 @@
+<h1>login</h1>
+
+<form name="login" ng-submit="loginSubmitted(this)">
+  <div>
+    <label for="login-username">Username</label>
+    <input type="text" ng-model="login.username">
+  </div>
+  <div>
+    <label for="login-password">Password</label>
+    <input type="password" ng-model="login.password">
+  </div>
+  <div>
+    <button>Log In</button>
+  </div>
+</form>
+
+<h1>create account</h1>
+
+<form name="createAccount" ng-submit="create(this)">
+  <div>
+    <label for="createAccount-username">Username</label>
+    <input type="text" ng-model="createAccount.username">
+  </div>
+  <div>
+    <label for="createAccount-password">Password</label>
+    <input type="password" ng-model="createAccount.password">
+  </div>
+  <div>
+    <button>Create Account</button>
+  </div>
+</form>
