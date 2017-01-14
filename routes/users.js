@@ -39,4 +39,23 @@ router.post('/create', (req, res, next) => {
   })
 })
 
+
+router.get('/login', (req, res, next) => {
+
+  const user = {
+    username: req.body.username,
+    password: req.body.password
+  }
+
+  userQueries.login(user)
+    .then((data) => {
+      console.log("Login user: ", data);
+      res.json(data)
+    })
+
+  // bcrypt.compare(myPlaintextPassword, hash, function(err, res) {
+  //   // res == true
+  // });
+})
+
 module.exports = router;

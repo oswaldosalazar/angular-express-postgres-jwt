@@ -20,5 +20,21 @@ angular.module('jwt-prototype')
     console.log('login form submitted');
     console.log(form.login.username);
     console.log(form.login.password);
+    const user = {
+      username: form.login.username,
+      password: form.login.password
+    }
+
+    $http.get('/users/login', user)
+      .then((res) => {
+        // localStorage.setItem('user', JSON.stringify(res.data))
+        // $location.path('/dashboard')
+        console.log(res.data)
+        console.log("in login Angular")
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+
   }
 })
