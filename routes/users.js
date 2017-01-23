@@ -40,15 +40,17 @@ router.post('/create', (req, res, next) => {
 })
 
 
-router.get('/login', (req, res, next) => {
+router.post('/login', (req, res, next) => {
 
   const user = {
     username: req.body.username,
     password: req.body.password
   }
+  console.log("User from route: ", user)
 
   userQueries.login(user)
     .then((data) => {
+      console.log("User: ", user);
       console.log("Login user: ", data);
       res.json(data)
     })

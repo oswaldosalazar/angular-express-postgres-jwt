@@ -24,8 +24,9 @@ angular.module('jwt-prototype')
       username: form.login.username,
       password: form.login.password
     }
+    console.log("User from login ctr: ", user);
 
-    $http.get('/users/login', user)
+    $http.post('/users/login', user)
       .then((res) => {
         // localStorage.setItem('user', JSON.stringify(res.data))
         // $location.path('/dashboard')
