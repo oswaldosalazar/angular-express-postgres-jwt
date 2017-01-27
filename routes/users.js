@@ -59,7 +59,7 @@ router.post('/login', (req, res, next) => {
           console.log("failure");
         }
       });
-      // res.json(data)
+      res.json(data)
     })
 })
 
