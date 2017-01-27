@@ -5,7 +5,7 @@ function create (user) {
 }
 
 function login (user) {
-  return knex('users')//.where('username', user.username)
+  return knex('users').where('username', user.username);
 }
 
 module.exports = {

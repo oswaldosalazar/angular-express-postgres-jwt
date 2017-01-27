@@ -50,14 +50,17 @@ router.post('/login', (req, res, next) => {
 
   userQueries.login(user)
     .then((data) => {
-      console.log("User: ", user);
-      console.log("Login user: ", data);
-      res.json(data)
+      console.log("Login pswd: ", user.password);
+      console.log("Hash pswd from db: ", data[0].password);
+      bcrypt.compare(user.password, data[0].password, function(err, res) {
+        if(res) {
+          console.log("success");
+        } else {
+          console.log("failure");
+        }
+      });
+      // res.json(data)
     })
-
-  // bcrypt.compare(myPlaintextPassword, hash, function(err, res) {
-  //   // res == true
-  // });
 })
 
 module.exports = router;
