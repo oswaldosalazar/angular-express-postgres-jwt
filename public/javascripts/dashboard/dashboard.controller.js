@@ -5,6 +5,6 @@ angular.module('jwt-prototype')
     if(!$scope.user) {
       $location.path('/')
     }
-    
-    $scope.test = $scope.user.username
+    console.log("User from dashboard: ", $scope.user);
+    $scope.name = $scope.user.username
   })

@@ -49,18 +49,20 @@ router.post('/login', (req, res, next) => {
   console.log("User from route: ", user)
 
   userQueries.login(user)
-    .then((data) => {
-      console.log("Login pswd: ", user.password);
-      console.log("Hash pswd from db: ", data[0].password);
-      console.log("full data: ", data[0])
-      bcrypt.compare(user.password, data[0].password, function(err, res) {
-        if(res) {
+    .then((id) => {
+      bcrypt.compare(user.password, id[0].password, function(err, result) {
+        if(result) {
           console.log("success");
+          const sanitizedUser = {
+            username: user.username,
+            jwt: user.jwt,
+            id: id[0]
+          }
+          res.json(sanitizedUser);
         } else {
           console.log("failure");
         }
       });
-      res.json(data[0].jwt)
     })
 })
 

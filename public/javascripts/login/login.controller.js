@@ -8,8 +8,8 @@ angular.module('jwt-prototype')
 
     $http.post('/users/create', user)
       .then((res) => {
-        localStorage.setItem('user', JSON.stringify(res.data))
-        $location.path('/dashboard')
+        localStorage.setItem('user', JSON.stringify(res.data));
+        $location.path('/dashboard');
       })
       .catch((err) => {
         console.error(err);
@@ -28,10 +28,9 @@ angular.module('jwt-prototype')
 
     $http.post('/users/login', user)
       .then((res) => {
-        // localStorage.setItem('user', JSON.stringify(res.data))
-        // $location.path('/dashboard')
-        console.log(res.data)
-        console.log("in login Angular")
+        console.log("In login Angular: ", res.data);
+        localStorage.setItem('user', JSON.stringify(res.data));
+        $location.path('/dashboard');
       })
       .catch((err) => {
         console.error(err);
