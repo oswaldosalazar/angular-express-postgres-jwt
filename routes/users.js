@@ -52,6 +52,7 @@ router.post('/login', (req, res, next) => {
     .then((data) => {
       console.log("Login pswd: ", user.password);
       console.log("Hash pswd from db: ", data[0].password);
+      console.log("full data: ", data[0])
       bcrypt.compare(user.password, data[0].password, function(err, res) {
         if(res) {
           console.log("success");
@@ -59,7 +60,7 @@ router.post('/login', (req, res, next) => {
           console.log("failure");
         }
       });
-      res.json(data)
+      res.json(data[0].jwt)
     })
 })
 
